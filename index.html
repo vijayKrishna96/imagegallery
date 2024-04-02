@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <h1>Image Gallery</h1>
+        <img src="./images/back.png" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="./images/image-4.png"></span>
+                <span><img src="./images/image-5.png"></span>
+                <span><img src="./images/image-6.png"></span>
+            </div>
+            <div>
+                <span><img src="./images/image-1.png"></span>
+                <span><img src="./images/image-2.png"></span>
+                <span><img src="./images/image-3.png"></span>
+            </div>
+        </div>
+        <img src="./images/next.png" id="nextBtn">
+    </div>
+    
+<script>
+    let scroolContainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
+
+    scroolContainer.addEventListener("wheel",(evt)=>{
+        evt.preventDefault();
+        scroolContainer.scrollLeft += evt.deltaY;
+        scroolContainer.style.scrollBehavior = "auto";
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+        scroolContainer.style.scrollBehavior = "smooth";
+        scroolContainer.scrollLeft += 900;
+    });
+
+    backBtn.addEventListener("click", ()=>{
+        scroolContainer.style.scrollBehavior = "smooth";
+        scroolContainer.scrollLeft -= 900;
+    });
+
+</script>
+    
+</body>
+</html>
